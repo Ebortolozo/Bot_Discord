@@ -36,12 +36,19 @@ async def on_message(msg):
     if msg.content.lower().startswith("!elo"):
         nick = msg.content[5:]
         posicao = elo.descobrir_elo(nick)
-        nome = str(posicao).split()[0]
-        print(nome)
-        color = Cor_elo.cor(nome)
+        Solo_duo = posicao[0]
+        flex = posicao[1]
+        nivel = posicao[2]
+        Solo_duo = str(Solo_duo).split()[0]
+        print(Solo_duo)
+        frase_1 = "Solo/Duo: "+ Solo_duo
+        frase_2 = "Flex: " + flex
+        frase_3 = "Nivel: " + nivel
+        color = Cor_elo.cor(Solo_duo)
         embed = discord.Embed(
             title=nick,
-            description="Solo/Duo: "+ posicao,
+            description = frase_1 + "\n" + frase_2 + "\n" + frase_3,
+            
             color = color
         )
         await msg.channel.send(embed=embed)  
