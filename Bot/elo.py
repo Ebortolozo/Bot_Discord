@@ -11,6 +11,7 @@ def descobrir_elo(nome_usuario):
     soup = BeautifulSoup(res.text, "html.parser")
     elo = soup.find(class_="TierRank")
     Solo_duo = elo.text
+    Solo_duo = Solo_duo.strip()
     #elo Flex
     elo_2 = soup.find(class_="sub-tier__rank-tier")
     Flex = elo_2.text
@@ -23,3 +24,4 @@ def descobrir_elo(nome_usuario):
     print(Flex)
     print(nivel)
     #print(res.text)
+    return [Solo_duo, Flex, nivel]

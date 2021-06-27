@@ -1,5 +1,7 @@
 
 def cor(elo):
+    if elo == "Unranked":
+        return 0X666666
     if elo == "Bronze":
         return 0xcd7f32
     elif elo == "Silver":
